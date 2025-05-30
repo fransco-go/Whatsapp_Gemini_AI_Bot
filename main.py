@@ -8,8 +8,8 @@ wa_token=os.environ.get("WA_TOKEN")
 genai.configure(api_key=os.environ.get("GEN_API"))
 phone_id=os.environ.get("PHONE_ID")
 phone=os.environ.get("PHONE_NUMBER")
-name="Vision" #The bot will consider this person as its owner or creator
-bot_name="Ask Me" #This will be the name of your bot, eg: "Hello I am Astro Bot"
+name="Your name or nickname" #The bot will consider this person as its owner or creator
+bot_name="Give a name to your bot" #This will be the name of your bot, eg: "Hello I am Astro Bot"
 model_name="gemini-1.5-flash-latest" #Switch to "gemini-1.0-pro" or any free model, if "gemini-1.5-flash" becomes paid in future.
 
 app=Flask(__name__)
@@ -122,6 +122,5 @@ def webhook():
                     file.delete()
         except :pass
         return jsonify({"status": "ok"}), 200
-
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
